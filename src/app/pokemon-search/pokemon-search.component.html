@@ -1,0 +1,13 @@
+<div>
+    <h4><label for="search-box">Pokemon Search</label></h4>
+  
+    <input #searchBox (input)="search(searchBox.value)" />
+  
+    <ul class="search-result">
+      <li *ngFor="let monster of pokemon$ | async" >
+        <a routerLink="/detail/{{monster.id}}">
+          {{monster.name}}
+        </a>
+      </li>
+    </ul>
+  </div>

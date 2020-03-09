@@ -1,0 +1,16 @@
+<h3>Top Pokemon</h3>
+
+<div class="overview-container">
+
+    <div  *ngFor="let monster of pokemon">
+        <a routerLink="/detail/{{monster.id}}">
+        <div class="overview-item-container">
+            <img  src="{{monster.sprites.front_default}}" />
+            <h4>{{monster.name}}</h4>
+            <p class="pokemon-description">{{monster.description}}</p>
+        </div>
+        </a>
+    </div>
+</div>
+
+<pokemon-search></pokemon-search>
