@@ -1,19 +1,21 @@
 <div *ngIf="pokemon">
     <h2>About {{pokemon.name | titlecase}}</h2>
 
-    <img  src="{{pokemon.sprites.front_default}}" />
+    <img  src="https://pokeres.bastionbot.org/images/pokemon/{{pokemon.id}}.png" />
     <div><span>ID: </span>{{pokemon.id}}</div>
     <div><span>Height: </span>{{pokemon.height}}</div>
     <div><span>Weight: </span>{{pokemon.weight}}</div>
     <div><span>Possible Moves: </span>
         <!-- TODO: Show move info in a tool-tip style on hover -->
-        <ul *ngFor="let move of pokemon.moves">
-            <li>{{move.move.name}}</li>
+        <ul>
+            <li *ngFor="let move of pokemon.moves" class="move">{{move.move.name}}</li>
         </ul>
     </div>
     <div><span>Base Stats: </span>
-        <ul *ngFor="let stat of pokemon.stats">
-            <li><span>{{stat.stat.name}}: </span>{{stat.base_stat}}</li>
+        <ul>
+            <li *ngFor="let stat of pokemon.stats">
+                {{stat.stat.name}} - {{stat.base_stat}}
+            </li>
         </ul>
     </div>
 </div>

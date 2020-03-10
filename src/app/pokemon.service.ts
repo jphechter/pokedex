@@ -31,4 +31,7 @@ export class PokemonService {
       });
   }
 
+  sortPokemon(pokemon) {
+  }
+
 }

@@ -1,0 +1,9 @@
+img {
+    margin: 0 auto;
+    max-width: 300px;
+    display: block;
+}
+ul {column-count: 4;}
+li {list-style: none;}
+.move:nth-child(even) {background: #ebebeb;}
+span {font-weight: bold;}
