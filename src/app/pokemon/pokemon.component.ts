@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Pokemon } from '../pokemon';
+import { PokemonAPIService } from '../pokemonapi.service';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -10,23 +11,21 @@ import { PokemonService } from '../pokemon.service';
 })
 export class PokemonComponent implements OnInit {
 
-  pokemon: Pokemon[];
+  pokemon: any = [];
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(
+    private pokemonAPIService: PokemonAPIService,
+    private pokemonService: PokemonService,
+    ) { }
   
   ngOnInit(): void {
-    this.getAllPokemon();
-  }
-
-  getAllPokemon(): void {
-      this.pokemonService.getAllPokemon()
-        // .subscribe(pokemon => this.pokemon = pokemon);
+    this.pokemon = this.pokemonService.pokemonsters;
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.pokemonService.addPokemon({ name } as Pokemon)
+    this.pokemonAPIService.addPokemon({ name } as Pokemon)
       .subscribe(pokemon => {
         this.pokemon.push(pokemon);
       });
@@ -34,7 +33,7 @@ export class PokemonComponent implements OnInit {
 
   delete(pokemon: Pokemon): void {
     this.pokemon = this.pokemon.filter(p => p !== pokemon);
-    this.pokemonService.deletePokemon(pokemon).subscribe();
+    this.pokemonAPIService.deletePokemon(pokemon).subscribe();
   }
 
 }

@@ -4,18 +4,12 @@
   <label>Pokemon name:
     <input #pokemonName />
   </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(pokemonName.value); pokemonName.value=''">
-    add
-  </button>
 </div>
 
 <ul>
   <li *ngFor="let monster of pokemon">
     <a routerLink="/detail/{{monster.id}}">
-      <span>{{monster.id}}</span> {{monster.name}}
+      <span>{{monster.id}}</span> {{monster.name}} {{monster.types}}
     </a>
-    <button title="delete pokemon"
-      (click)="delete(monster)">x</button>
   </li>
 </ul>

@@ -1,4 +1,6 @@
 export interface Pokemon {
-    id: number;
     name: string;
+    id: number;
+    // types: string[];
+    // stats: any;
 }

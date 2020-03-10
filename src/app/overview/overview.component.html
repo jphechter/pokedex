@@ -1,16 +1,17 @@
-<h3>Top Pokemon</h3>
+<h3>Featured Pokemon</h3>
 
-<div class="overview-container">
-
-    <div  *ngFor="let monster of pokemon">
-        <a routerLink="/detail/{{monster.id}}">
-        <div class="overview-item-container">
-            <img  src="{{monster.sprites.front_default}}" />
-            <h4>{{monster.name}}</h4>
-            <p class="pokemon-description">{{monster.description}}</p>
+<div class="row">
+    <div class="card-deck" class="row col-10">
+        <div *ngFor="let monster of pokemon" class="col-3">
+            <a class="card-link" routerLink="/detail/{{monster.id}}">
+                <div class="card">
+                <img src="{{monster.sprites.front_default}}" class="card-img-top" alt="{{monster.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{monster.name}}</h5>
+                    <p class="card-text text-muted"># {{monster.id}}</p>
+                </div>
+                </div>
+            </a>
         </div>
-        </a>
     </div>
 </div>
-
-<pokemon-search></pokemon-search>

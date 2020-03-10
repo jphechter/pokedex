@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Pokemon } from '../pokemon';
-import { PokemonService } from '../pokemon.service';
+import { PokemonAPIService } from '../pokemonapi.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class PokemonDetailComponent implements OnInit {
   
   constructor(
     private route: ActivatedRoute,
-    private pokemonService: PokemonService,
+    private pokemonAPIService: PokemonAPIService,
     private location: Location,
     
   ) { }
@@ -28,7 +28,7 @@ export class PokemonDetailComponent implements OnInit {
 
   getPokemon(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.pokemonService.getPokemonByID(id).subscribe(response => {
+    this.pokemonAPIService.getPokemonByID(id).subscribe(response => {
       this.pokemon = response;
     });
   }
@@ -38,7 +38,7 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.pokemonService.updatePokemon(this.pokemon)
+    this.pokemonAPIService.updatePokemon(this.pokemon)
     .subscribe(() => this.goBack());
   }
 

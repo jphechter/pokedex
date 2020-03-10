@@ -1,0 +1,26 @@
+<h2>Pokemon</h2>
+
+<div>
+  <label>
+    <input #searchBox placeholder="Search" (input)="search(searchBox.value)" />
+  </label>
+</div>
+
+<ul>
+  <li>
+    <div class="row column-names">
+      <p class='col-4'>Name</p>
+      <p class='col-4'>ID</p>
+      <p class='col-4'>Types</p>
+    </div>
+  </li>
+  <li *ngFor="let monster of pokemon">
+    <a routerLink="/detail/{{monster.id}}">
+      <div class="row">
+        <p class='col-4'>{{monster.name}}</p>
+        <p class='col-4'>#{{monster.id}}</p>
+        <p class='col-4'>{{monster.types}}</p>
+      </div>
+    </a>
+  </li>
+</ul>

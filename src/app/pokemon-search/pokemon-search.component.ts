@@ -7,7 +7,7 @@ import {
  } from 'rxjs/operators';
 
 import { Pokemon } from '../pokemon';
-import { PokemonService } from '../pokemon.service';
+import { PokemonAPIService } from '../pokemonapi.service';
 
 @Component({
   selector: 'pokemon-search',
@@ -18,7 +18,7 @@ export class PokemonSearchComponent implements OnInit {
   pokemon$: Observable<Pokemon[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonAPIService: PokemonAPIService) {}
 
   // Push a search term into the observable stream.
   search(term: string): void {
@@ -34,7 +34,7 @@ export class PokemonSearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.pokemonService.searchAllPokemon(term)),
+      switchMap((term: string) => this.pokemonAPIService.searchAllPokemon(term)),
     );
   }
 }

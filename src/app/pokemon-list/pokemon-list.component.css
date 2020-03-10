@@ -1,0 +1,20 @@
+li {
+    list-style-type: none;   
+}
+li:nth-child(even) {
+    background: #ebebeb;
+}
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+li div {
+    padding: 10px 0;
+}
+.column-names {
+    font-weight: bold;
+}
+li a div p{
+    margin: 0;
+}

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { InMemoryDataService } from './in-memory-data.service';
+import { PokemonAPIService } from './pokemonapi.service';
 
-describe('InMemoryDataService', () => {
-  let service: InMemoryDataService;
+describe('PokemonAPIService', () => {
+  let service: PokemonAPIService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(InMemoryDataService);
+    service = TestBed.inject(PokemonAPIService);
   });
 
   it('should be created', () => {
