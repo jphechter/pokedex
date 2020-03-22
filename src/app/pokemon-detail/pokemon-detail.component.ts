@@ -14,12 +14,12 @@ import { PokemonAPIService } from '../pokemonapi.service';
 export class PokemonDetailComponent implements OnInit {
 
   @Input() pokemon;
-  
+
   constructor(
     private route: ActivatedRoute,
     private pokemonAPIService: PokemonAPIService,
     private location: Location,
-    
+
   ) { }
 
   ngOnInit(): void {
@@ -31,15 +31,6 @@ export class PokemonDetailComponent implements OnInit {
     this.pokemonAPIService.getPokemonByID(id).subscribe(response => {
       this.pokemon = response;
     });
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  save(): void {
-    this.pokemonAPIService.updatePokemon(this.pokemon)
-    .subscribe(() => this.goBack());
   }
 
 }

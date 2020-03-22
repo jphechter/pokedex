@@ -17,23 +17,9 @@ export class PokemonComponent implements OnInit {
     private pokemonAPIService: PokemonAPIService,
     private pokemonService: PokemonService,
     ) { }
-  
+
   ngOnInit(): void {
     this.pokemon = this.pokemonService.pokemonsters;
-  }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.pokemonAPIService.addPokemon({ name } as Pokemon)
-      .subscribe(pokemon => {
-        this.pokemon.push(pokemon);
-      });
-  }
-
-  delete(pokemon: Pokemon): void {
-    this.pokemon = this.pokemon.filter(p => p !== pokemon);
-    this.pokemonAPIService.deletePokemon(pokemon).subscribe();
   }
 
 }
