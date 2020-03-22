@@ -19,16 +19,27 @@ export class PokemonListComponent implements OnInit {
   search(searchString) {
     this.pokemon = this.pokemonService.pokemonsters;
     searchString = searchString.trim();
-    let name, types;
     this.pokemon = this.pokemon.filter((pokemon) => {
-      // name = pokemon['name'];
-      // pokemon['types'].array.forEach(type => {
-      //   types += type;
-      // });
-      if ( pokemon['name'].search(searchString) > -1){
+      let pokemonSearchString = this.createPokemonSearchString(pokemon);
+      if ( pokemonSearchString.search(searchString) > -1 ){
         return pokemon;
       };
     })
+  }
+
+  createPokemonSearchString(pokemon) {
+    /*
+    This function makes one string consisting of all searchable
+    params (name, type(s), and stats)and then looks for a portion
+    that may match.
+
+    EX: Bulbasaur -> bulbasaurpoisongrass
+    */
+    let pokemonSearchString = pokemon['name'];
+    pokemon['types'].forEach(type => {
+      pokemonSearchString += type;
+    });
+    return pokemonSearchString;
   }
 
 }
