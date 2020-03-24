@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
-import { PokemonComponent } from './pokemon/pokemon.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
   declarations: [
     AppComponent,
     OverviewComponent,
-    PokemonComponent,
     PokemonDetailComponent,
     PokemonListComponent,
   ],
