@@ -13,11 +13,11 @@ export class PokemonListComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemon = this.pokemonService.pokemonsters;
+    this.pokemon = this.pokemonService.allPokemon;
   }
 
   search(searchString) {
-    this.pokemon = this.pokemonService.pokemonsters;
+    this.pokemon = this.pokemonService.allPokemon;
     searchString = searchString.trim();
     this.pokemon = this.pokemon.filter((pokemon) => {
       let pokemonSearchString = this.createPokemonSearchString(pokemon);

@@ -12,7 +12,7 @@ export class OverviewComponent implements OnInit {
   placeholder;
 
   constructor(private pokemonAPIService: PokemonAPIService) { }
-  
+
   ngOnInit() {
     this.getPokemon();
   }
@@ -20,6 +20,8 @@ export class OverviewComponent implements OnInit {
   getPokemon(): void {
     for(let i = 0; i < 8; i++){
       let id = Math.floor(Math.random() * 500) + 1;
+      // TODO: Rather than make additional calls to the API,
+      // this should use data collected in PokemonService.
       this.pokemonAPIService.getPokemonByID(id).subscribe(response => {
         this.pokemon.push(response)
       });

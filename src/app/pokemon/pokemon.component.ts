@@ -19,7 +19,7 @@ export class PokemonComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.pokemon = this.pokemonService.pokemonsters;
+    this.pokemon = this.pokemonService.allPokemon;
   }
 
 }

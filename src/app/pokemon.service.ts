@@ -6,32 +6,42 @@ import { PokemonAPIService } from './pokemonapi.service';
 })
 export class PokemonService {
 
-  pokemonsters: any = [];
+  allPokemon: any = [];
 
   constructor(private pokemonAPIService: PokemonAPIService) {
-    this.getAllPokemon();
+    // TODO: add a loading screen while this is running
+    // OR find a better API to draw all data from
+     this.getAllPokemon();
    }
 
-  getAllPokemon(): void {
-    let pokemonNames = [];
+  getAllPokemon(): any {
+    /* Gets all Pokemon from PokeAPI */
     this.pokemonAPIService.getAllPokemon()
       .subscribe(response => {
-        response['results'].forEach(result => {
-          pokemonNames.push(result['name']);
-        });
-        pokemonNames.forEach(name => {
-          this.pokemonAPIService.getPokemonByName(name)
+        response['results'].map(result => {
+          this.pokemonAPIService.getPokemonByName(result['name'])
             .subscribe(pokemon => {
-              // TODO: This should really create instances of a Pokemon class 
+              // TODO: This should really create instances of a Pokemon class
               let types = pokemon['types'].map(type => type['type']['name']);
               pokemon['types'] = types;
-              this.pokemonsters.push(pokemon)
+              this.allPokemon.push(pokemon);
+              this.sortPokemon(this.allPokemon);
             });
         })
       });
   }
 
   sortPokemon(pokemon) {
+    pokemon.sort((pokemon1, pokemon2) => {
+      // Sort by type first
+      if (pokemon1['types'][0] > pokemon2['types'][0]) return 1;
+      if (pokemon1['types'][0] < pokemon2['types'][0]) return -1;
+
+      // then by name
+      if (pokemon1['name'][0] > pokemon2['name'][0]) return 1;
+      if (pokemon1['name'][0] < pokemon2['name'][0]) return -1;
+    });
+    return pokemon;
   }
 
 }
