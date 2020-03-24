@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { PokemonAPIService } from '../pokemonapi.service';
+import { Pokemon } from '../pokemon';
 
 
 @Component({
@@ -12,7 +12,8 @@ import { PokemonAPIService } from '../pokemonapi.service';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  @Input() pokemon;
+  pokemon: any;
+  // pokemon: Pokemon;
 
   constructor(
     private route: ActivatedRoute,

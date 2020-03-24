@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PokemonAPIService } from './pokemonapi.service';
+import { Pokemon } from './pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { PokemonAPIService } from './pokemonapi.service';
 export class PokemonService {
 
   allPokemon: any = [];
+  listAllPokemon: [Pokemon] = [null];
 
   constructor(private pokemonAPIService: PokemonAPIService) {
     // TODO: add a loading screen while this is running
@@ -21,7 +23,9 @@ export class PokemonService {
         response['results'].map(result => {
           this.pokemonAPIService.getPokemonByName(result['name'])
             .subscribe(pokemon => {
-              // TODO: This should really create instances of a Pokemon class
+              this.listAllPokemon.push(new Pokemon(pokemon))
+
+              // TODO: rip this out
               let types = pokemon['types'].map(type => type['type']['name']);
               pokemon['types'] = types;
               this.allPokemon.push(pokemon);
