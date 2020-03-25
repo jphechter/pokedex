@@ -26,8 +26,7 @@ export class PokemonAPIService {
   // Get all Pokemon
   getAllPokemon() {
     // Rather than call the API to get a count and then again for Pokemon, 10000 seems safe
-    // return this.http.get(`${this.pokeAPIUrl}pokemon/?limit=10000`)
-    return this.http.get(`${this.pokeAPIUrl}pokemon/?limit=20`)  // DO NOT COMMIT THIS CHANGE - THIS IS JUST FOR TESTING
+    return this.http.get(`${this.pokeAPIUrl}pokemon/?limit=10000`)
   }
 
 }
