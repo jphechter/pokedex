@@ -3,25 +3,24 @@ import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon';
 
 @Component({
-  selector: 'pokemon-list',
-  templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.css']
+  selector: 'list-view',
+  templateUrl: './list-view.component.html',
+  styleUrls: ['./list-view.component.css']
 })
-export class PokemonListComponent implements OnInit {
+export class ListViewComponent implements OnInit {
 
-  pokemon: any;
-  // pokemon: [Pokemon];
+  allPokemon: Pokemon[] = [];
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemon = this.pokemonService.allPokemon;
+    this.allPokemon = this.pokemonService.allPokemon;
   }
 
   search(searchString) {
-    this.pokemon = this.pokemonService.allPokemon;
+    this.allPokemon = this.pokemonService.allPokemon;
     searchString = searchString.trim();
-    this.pokemon = this.pokemon.filter((pokemon) => {
+    this.allPokemon = this.allPokemon.filter((pokemon) => {
       let pokemonSearchString = this.createPokemonSearchString(pokemon);
       if ( pokemonSearchString.search(searchString) > -1 ){
         return pokemon;

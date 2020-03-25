@@ -7,12 +7,12 @@ import { Pokemon } from './pokemon';
 })
 export class PokemonService {
 
-  allPokemon: any = [];
-  listAllPokemon: [Pokemon] = [null];
+  allPokemon = [];
 
   constructor(private pokemonAPIService: PokemonAPIService) {
     // TODO: add a loading screen while this is running
     // OR find a better API to draw all data from
+    // Why not both?
      this.getAllPokemon();
    }
 
@@ -23,12 +23,7 @@ export class PokemonService {
         response['results'].map(result => {
           this.pokemonAPIService.getPokemonByName(result['name'])
             .subscribe(pokemon => {
-              this.listAllPokemon.push(new Pokemon(pokemon))
-
-              // TODO: rip this out
-              let types = pokemon['types'].map(type => type['type']['name']);
-              pokemon['types'] = types;
-              this.allPokemon.push(pokemon);
+              this.allPokemon.push(new Pokemon(pokemon))
               this.sortPokemon(this.allPokemon);
             });
         })

@@ -14,12 +14,12 @@
       <p class='col-4'>Types</p>
     </div>
   </li>
-  <li *ngFor="let monster of pokemon">
-    <a routerLink="/detail/{{monster.id}}">
+  <li *ngFor="let pokemon of allPokemon">
+    <a routerLink="/detail/{{pokemon.id}}">
       <div class="row">
-        <p class='col-4'>{{monster.name}}</p>
-        <p class='col-4'>#{{monster.id}}</p>
-        <p class='col-4'>{{monster.types}}</p>
+        <p class='col-4'>{{pokemon.name}}</p>
+        <p class='col-4'>#{{pokemon.id}}</p>
+        <p class='col-4'>{{pokemon.types}}</p>
       </div>
     </a>
   </li>

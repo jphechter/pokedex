@@ -6,19 +6,17 @@ import { Pokemon } from '../pokemon';
 
 
 @Component({
-  selector: 'pokemon-detail',
-  templateUrl: './pokemon-detail.component.html',
-  styleUrls: ['./pokemon-detail.component.css']
+  selector: 'detail-view',
+  templateUrl: './detail-view.component.html',
+  styleUrls: ['./detail-view.component.css']
 })
-export class PokemonDetailComponent implements OnInit {
+export class DetailViewComponent implements OnInit {
 
-  pokemon: any;
-  // pokemon: Pokemon;
+  pokemon: Pokemon;
 
   constructor(
     private route: ActivatedRoute,
     private pokemonAPIService: PokemonAPIService,
-
   ) { }
 
   ngOnInit(): void {
@@ -27,8 +25,9 @@ export class PokemonDetailComponent implements OnInit {
 
   getPokemon(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    // TODO: This should pull from PokemonService
     this.pokemonAPIService.getPokemonByID(id).subscribe(response => {
-      this.pokemon = response;
+      this.pokemon = new Pokemon(response);
     });
   }
 

@@ -8,13 +8,13 @@
     <div><span>Possible Moves: </span>
         <!-- TODO: Show move info in a tool-tip style on hover -->
         <ul>
-            <li *ngFor="let move of pokemon.moves" class="move">{{move.move.name}}</li>
+            <li *ngFor="let move of pokemon.moves" class="move">{{move}}</li>
         </ul>
     </div>
     <div><span>Base Stats: </span>
         <ul>
-            <li *ngFor="let stat of pokemon.stats">
-                {{stat.stat.name}} - {{stat.base_stat}}
+            <li *ngFor="let stat of pokemon.baseStats">
+                {{stat.name}} - {{stat.stat}}
             </li>
         </ul>
     </div>

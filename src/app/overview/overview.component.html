@@ -2,13 +2,13 @@
 
 <div class="row">
     <div class="card-deck" class="row col-10">
-        <div *ngFor="let monster of pokemon" class="col-3">
-            <a class="card-link" routerLink="/detail/{{monster.id}}">
+        <div *ngFor="let pokemon of randomPokemon" class="col-3">
+            <a class="card-link" routerLink="/detail/{{pokemon.id}}">
                 <div class="card">
-                <img src="{{monster.sprites.front_default}}" class="card-img-top" alt="{{monster.name}}">
+                <img src="{{pokemon.sprites.front_default}}" class="card-img-top" alt="{{pokemon.name}}">
                 <div class="card-body">
-                    <h5 class="card-title">{{monster.name}}</h5>
-                    <p class="card-text text-muted"># {{monster.id}}</p>
+                    <h5 class="card-title">{{pokemon.name}}</h5>
+                    <p class="card-text text-muted"># {{pokemon.id}}</p>
                 </div>
                 </div>
             </a>

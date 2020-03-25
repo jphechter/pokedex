@@ -7,8 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview.component';
-import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { DetailViewComponent } from './detail-view/detail-view.component';
+import { ListViewComponent } from './list-view/list-view.component';
 
 @NgModule({
   imports: [
@@ -20,8 +20,8 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
   declarations: [
     AppComponent,
     OverviewComponent,
-    PokemonDetailComponent,
-    PokemonListComponent,
+    DetailViewComponent,
+    ListViewComponent,
   ],
   bootstrap: [AppComponent]
 })
